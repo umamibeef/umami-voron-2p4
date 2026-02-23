@@ -31,7 +31,8 @@ plus probe and macro configs. The repo root also contains service configs
 ## Third‑Party Modifications (Local Changes)
 These files originate from upstream projects but have been modified locally in this repo:
 - `cfg/probes/klicky/klicky-variables.cfg`: updated bed size limits (`variable_max_bed_x/y`) to 350.
-- `cfg/probes/klicky/klicky-macros.cfg`: `PROBE_CALIBRATE` moves to bed center before calibration and prints guidance for the manual nozzle paper test. Added `PROBE_CALIBRATE_NOZZLE` (probe once, dock, then manual nozzle test) and replaced `TESTZ` with a safe Z move.
+- `cfg/probes/klicky/klicky-macros.cfg`: `PROBE_CALIBRATE` moves to bed center before calibration and prints guidance for the manual nozzle paper test.
+- `cfg/probes/klicky/klicky-macros.cfg`: manual-step guidance now includes removing the probe if it sits lower than the nozzle.
 - `stealthburner_leds.cfg`: LED data pin set to `EBBCan:gpio16` for the SB2209 toolhead.
 - `cfg/macros/bedfans.cfg`: M190 includes `status_heating/status_ready` hooks; bed fans use a single pin.
 - `cfg/macros/z_calibration.cfg`: added `DEBUG_ZCAL_STATE` helper macro for troubleshooting.
@@ -44,6 +45,7 @@ These files originate from upstream projects but have been modified locally in t
 - `M141` — set chamber temp target (wraps `SET_TEMPERATURE_FAN_TARGET`).
 - `PROBE_CALIBRATE` — Klicky probe calibration flow.
 - `PROBE_ACCURACY` — Klicky probe repeatability test.
+- `PROBE_Z_ACCURACY` — Z endstop/probe repeatability test.
 - `BED_MESH_CALIBRATE` — Klicky‑aware mesh routine.
 - `QUAD_GANTRY_LEVEL` — Klicky‑aware QGL routine.
 - `RUN_CALCULATE_SWITCH_OFFSET` — helper for z_calibration switch offset.
