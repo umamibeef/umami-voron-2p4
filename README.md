@@ -28,6 +28,14 @@ plus probe and macro configs. The repo root also contains service configs
 - If you move files again, update the include paths in `printer.cfg` and
   `probes/klicky/klicky-probe.cfg` (relative includes).
 
+## Third‑Party Modifications (Local Changes)
+These files originate from upstream projects but have been modified locally in this repo:
+- `cfg/probes/klicky/klicky-variables.cfg`: updated bed size limits (`variable_max_bed_x/y`) to 350.
+- `cfg/probes/klicky/klicky-macros.cfg`: `PROBE_CALIBRATE` docks the probe before the manual paper test and moves to bed center.
+- `stealthburner_leds.cfg`: LED data pin set to `EBBCan:gpio16` for the SB2209 toolhead.
+- `cfg/macros/bedfans.cfg`: M190 includes `status_heating/status_ready` hooks; bed fans use a single pin.
+- `cfg/macros/z_calibration.cfg`: added `DEBUG_ZCAL_STATE` helper macro for troubleshooting.
+
 ## Macro Cheat Sheet
 - `PRINT_START` — main start sequence.
 - `PRINT_END` — end sequence.
