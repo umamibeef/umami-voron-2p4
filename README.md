@@ -27,6 +27,7 @@ plus probe and macro configs. The repo root also contains service configs
 - Leave `printer.cfg` at the repo root.
 - If you move files again, update the include paths in `printer.cfg` and
   `probes/klicky/klicky-probe.cfg` (relative includes).
+- Probe configuration (including the pin) lives in `printer.cfg` to allow `SAVE_CONFIG` to update `z_offset`.
 
 ## Third‑Party Modifications (Local Changes)
 These files originate from upstream projects but have been modified locally in this repo:
